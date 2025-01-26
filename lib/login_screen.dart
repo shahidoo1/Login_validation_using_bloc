@@ -31,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 context,
                 MaterialPageRoute(
                     builder: (context) => HomeScreeen(
-                          eamil: emailController.text.trim(),
+                          email: emailController.text.trim(),
                           Passsword: passwordController.text.trim(),
                         )),
                 (route) => false);
@@ -39,10 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
         },
         builder: (context, state) {
           if (state is Authloading) {
-            return const Center(
-                child: CircularProgressIndicator(
-              color: Colors.deepOrange,
-            ));
+            return const Center(child: CircularProgressIndicator());
           }
           return SingleChildScrollView(
             child: Center(
@@ -90,6 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           email: emailController.text.trim(),
                           password: passwordController.text.trim()));
                     },
+                    text: 'SIGN IN',
                   ),
                 ],
               ),

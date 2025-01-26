@@ -3,7 +3,9 @@ import 'package:flutter_responsive_login_ui/pallete.dart';
 
 class GradientButton extends StatelessWidget {
   final VoidCallback onPressed;
-  const GradientButton({Key? key, required this.onPressed}) : super(key: key);
+  final String text;
+  const GradientButton({Key? key, required this.onPressed, required this.text})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +29,9 @@ class GradientButton extends StatelessWidget {
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
         ),
-        child: const Text(
-          'Sign in',
-          style: TextStyle(
+        child: Text(
+          text,
+          style: const TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 17,
           ),
