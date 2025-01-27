@@ -11,7 +11,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthLoginRequest>(_onAuthLoginRequested);
     on<AuthLogoutRequested>(_onAuthLogoutRequested);
   }
-  void _onAuthLoginRequested(AuthLoginRequest event, Emitter emit) async {
+  void _onAuthLoginRequested(
+      AuthLoginRequest event, Emitter<AuthState> emit) async {
     emit(Authloading());
     try {
       final email = event.email;
@@ -35,7 +36,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  void _onAuthLogoutRequested(AuthLogoutRequested event, Emitter emit) async {
+  void _onAuthLogoutRequested(
+      AuthLogoutRequested event, Emitter<AuthState> emit) async {
     emit(Authloading());
     try {
       await Future.delayed(Duration(seconds: 1));
